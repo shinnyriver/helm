@@ -1,0 +1,10 @@
+releases:
+  - name: react-app
+    chart: ./react-chart
+    values:
+      - ./react-chart/values.yaml
+
+  - name: nginx
+    chart: ./nginx-chart
+    values:
+      - ./nginx-chart/values.yaml
