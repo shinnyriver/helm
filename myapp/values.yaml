@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  react:
+    repository: shinnyriver/myreact
+    tag: latest
+    pullPolicy: IfNotPresent
+  nginx:
+    repository: nginx
+    tag: latest
+    pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30000
+
+ingress:
+  enabled: false
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+serviceAccount:
+  create: true
+  name: myapp-sa
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
